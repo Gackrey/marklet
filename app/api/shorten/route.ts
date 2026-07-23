@@ -10,30 +10,17 @@ export async function POST(req: Request): Promise<Response> {
 
   try {
     const resp = await fetch(
-      `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`,
+      `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`,
       { headers: { 'User-Agent': 'marklet/1.0' } },
     );
 
-    const text = await resp.text();
+    const text = (await resp.text()).trim();
 
-    if (!resp.ok) {
-      throw new Error(`is.gd ${resp.status}: ${text.slice(0, 120)}`);
+    if (!resp.ok || !text.startsWith('https://')) {
+      throw new Error(`Shortening failed: ${text.slice(0, 120)}`);
     }
 
-    // is.gd occasionally returns a plain-text "Error, …" body with a 200 status
-    // even when format=json is requested, so we parse manually.
-    let data: { shorturl?: string; errorcode?: number; errormessage?: string };
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error(text.slice(0, 120));
-    }
-
-    if (data.errorcode !== undefined || !data.shorturl) {
-      throw new Error(data.errormessage ?? 'Shortening failed');
-    }
-
-    return Response.json({ shortUrl: data.shorturl });
+    return Response.json({ shortUrl: text });
   } catch (err) {
     return Response.json(
       { error: err instanceof Error ? err.message : 'Shortening failed' },
