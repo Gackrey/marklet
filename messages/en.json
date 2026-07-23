@@ -1,0 +1,91 @@
+{
+  "topbar": {
+    "brand": "Marklet",
+    "saveDraft": "Draft",
+    "saveSaving": "Saving…",
+    "saveSaved": "Saved",
+    "inLink": "· {chars} chars in link",
+    "notInLink": "· not yet in link",
+    "historyTitle": "Recent docs",
+    "mcpTitle": "Connect to Claude via MCP",
+    "templatesTitle": "New from template",
+    "templatesHeader": "TEMPLATES",
+    "exportTitle": "Export",
+    "exportPdf": "PDF / Print",
+    "exportHtml": "HTML file",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode",
+    "save": "Save",
+    "shortTitle": "Copy shortened URL (via is.gd)",
+    "shortIdle": "Short link",
+    "shortLoading": "…",
+    "shortCopied": "Copied!",
+    "shortFailed": "Failed",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "viewEdit": "Edit",
+    "viewSplit": "Split",
+    "viewPreview": "View"
+  },
+  "toolbar": {
+    "bold": "Bold (⌘B)",
+    "italic": "Italic (⌘I)",
+    "code": "Inline code (⌘`)",
+    "link": "Link (⌘K)",
+    "h1": "Heading 1 (⌘1)",
+    "h2": "Heading 2 (⌘2)",
+    "h3": "Heading 3 (⌘3)",
+    "checkboxAdd": "Add checkbox (⌘↵)",
+    "checkboxCheck": "Check (⌘↵)",
+    "checkboxUncheck": "Uncheck (⌘↵)",
+    "codeBlock": "Code block (⌘⇧K)",
+    "qrCode": "QR code",
+    "encrypt": "Encrypt",
+    "encrypted": "Encrypted",
+    "encryptTitle": "Click to encrypt this document",
+    "encryptedTitle": "Encrypted — click to remove encryption"
+  },
+  "statsBar": {
+    "words": "{count} words",
+    "chars": "{count} chars",
+    "inLink": "{count} in link"
+  },
+  "recentDocs": {
+    "title": "Saved docs",
+    "closeTitle": "Close",
+    "emptyLine1": "No saved docs yet.",
+    "emptyLine2": "Click Save to store a document.",
+    "deleteTitle": "Delete",
+    "chars": "{count} chars"
+  },
+  "copyButton": {
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "qr": {
+    "title": "Scan to open",
+    "closeTitle": "Close",
+    "autoShortened": "Auto-shortened — URL was too long",
+    "errorTooLong": "URL is too long for a QR code and shortening failed.\nTry the Short link button first, then open QR.",
+    "errorGeneral": "Failed to generate QR code.",
+    "downloadPng": "Download PNG"
+  },
+  "readView": {
+    "madeWith": "Made with",
+    "brand": "Marklet",
+    "copyLink": "Copy link"
+  },
+  "mcp": {
+    "title": "Connect to Claude via MCP",
+    "subtitle": "Let Claude read, write, and update your Marklet documents by URL — no copy-paste needed.",
+    "closeTitle": "Close",
+    "localhostWarning": "You're on localhost. Claude Desktop can't reach this URL. Deploy first, then add the MCP server.",
+    "serverUrlLabel": "MCP SERVER URL",
+    "configLabel": "CLAUDE DESKTOP CONFIG",
+    "configHint": "Paste into <file>claude_desktop_config.json</file> under the <key>mcpServers</key> key.",
+    "docsLink": "How to set up MCP in Claude Desktop",
+    "toolReadDesc": "— Read a Marklet doc from its URL",
+    "toolWriteDesc": "— Create a new Marklet doc from markdown",
+    "toolUpdateDesc": "— Replace content in an existing doc"
+  }
+}

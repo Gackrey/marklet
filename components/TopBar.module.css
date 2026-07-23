@@ -1,0 +1,208 @@
+.header {
+  height: var(--space-shell-height);
+  background: var(--color-bg-raised);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-raised);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brandName {
+  font-family: var(--font-ui);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.saveState {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-caps);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.saveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.saveDot[data-state='saved'] {
+  background: var(--color-success);
+}
+
+.saveDot[data-state='saving'] {
+  background: var(--color-warning);
+}
+
+.saveDot[data-state='draft'] {
+  background: var(--color-text-tertiary);
+}
+
+.saveMeta {
+  color: var(--color-text-tertiary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dropdownWrap {
+  position: relative;
+}
+
+.dropdownSectionLabel {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caps);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dropdownItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-family: var(--font-ui);
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: var(--color-bg-sunken);
+  color: var(--color-text-primary);
+}
+
+.templateItem {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  white-space: normal;
+}
+
+.templateItem:hover {
+  background: var(--color-bg-sunken);
+}
+
+.templateName {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+}
+
+.templateDesc {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-ui);
+}
+
+.themeBtn {
+  font-size: 16px;
+}
+
+.shortBtn {
+  height: 32px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  font-family: var(--font-ui);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition:
+    background var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.shortBtn[data-state='idle'] {
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.shortBtn[data-state='idle']:hover {
+  background: var(--color-bg-sunken);
+  color: var(--color-text-primary);
+}
+
+.shortBtn[data-state='loading'] {
+  cursor: wait;
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.shortBtn[data-state='copied'] {
+  cursor: pointer;
+  background: var(--color-success-subtle);
+  color: var(--color-success);
+}
+
+.shortBtn[data-state='error'] {
+  cursor: pointer;
+  background: var(--color-danger-subtle);
+  color: var(--color-danger);
+}
+
+.copyBtn {
+  height: 32px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-button);
+  border: none;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  font-family: var(--font-ui);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.copyBtn[data-copied='false'] {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.copyBtn[data-copied='false']:hover {
+  background: var(--color-accent-hover);
+}
+
+.copyBtn[data-copied='true'] {
+  background: var(--color-success-subtle);
+  color: var(--color-success);
+}

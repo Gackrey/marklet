@@ -1,0 +1,11 @@
+.badge {
+  background: var(--color-bg-sunken);
+  border-radius: var(--radius-badge);
+  padding: 1px 6px;
+  letter-spacing: var(--tracking-caps);
+  font-size: 10px;
+}
+
+.mono {
+  font-family: var(--font-editor);
+}

@@ -1,0 +1,158 @@
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.headerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.headerTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  font-family: var(--font-ui);
+}
+
+.headerDesc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+
+.warning {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  background: var(--color-warning-subtle, var(--color-bg-sunken));
+  border: 1px solid var(--color-warning, var(--color-border));
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.warningIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warningText {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-caps);
+  font-family: var(--font-ui);
+  margin-bottom: var(--space-2);
+  margin-top: 0;
+}
+
+.urlRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.configHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.codeBlock {
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-family: var(--font-editor);
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.urlCode {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+}
+
+.configNote {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-ui);
+}
+
+.inlineCode {
+  font-family: var(--font-editor);
+  background: var(--color-bg-sunken);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.toolList {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.toolItem {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+}
+
+.toolName {
+  font-family: var(--font-editor);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.toolDesc {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-ui);
+}
+
+.docsLink {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  font-family: var(--font-ui);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.docsLink:hover {
+  text-decoration: underline;
+}

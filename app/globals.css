@@ -1,26 +1,113 @@
-@import "tailwindcss";
+@import '../styles/tokens.css';
+@import '../styles/prose.css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ui);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color var(--duration-normal) var(--ease-default),
+    color var(--duration-normal) var(--ease-default);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Focus visible only for keyboard nav */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Remove CodeMirror editor outline */
+.cm-editor,
+.cm-editor.cm-focused {
+  outline: none !important;
+}
+.cm-content:focus-visible {
+  outline: none;
+  box-shadow: none !important;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Editor placeholder */
+.cm-placeholder {
+  color: var(--color-text-tertiary) !important;
+  font-style: normal !important;
+  white-space: pre !important;
+}
+
+/* Divider between editor and preview panes */
+.pane-divider {
+  width: 1px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* Print: hide all UI chrome, show only preview content */
+@media print {
+  header,
+  .toolbar-bar,
+  footer,
+  .cm-editor,
+  .pane-divider {
+    display: none !important;
+  }
+  .app-root {
+    display: block !important;
+    height: auto !important;
+  }
+  main {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    min-height: unset !important;
+  }
+  .preview-pane {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    padding: 0 !important;
+  }
+  .prose {
+    max-width: none !important;
+    color: #1a1a1a !important;
+  }
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
 }

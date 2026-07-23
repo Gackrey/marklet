@@ -1,0 +1,186 @@
+/* Preview/rendered markdown typography */
+.prose {
+  color: var(--color-preview-text);
+  font-family: var(--font-preview);
+  font-size: var(--preview-font-size);
+  line-height: var(--preview-line-height);
+  max-width: var(--preview-max-width);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-preview-text);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.prose h1 {
+  font-size: var(--text-2xl);
+  margin-top: 0;
+}
+.prose h2 {
+  font-size: var(--text-xl);
+}
+.prose h3 {
+  font-size: var(--text-lg);
+}
+.prose h4 {
+  font-size: var(--text-md);
+}
+.prose h5,
+.prose h6 {
+  font-size: var(--text-base);
+}
+
+.prose p {
+  margin-bottom: var(--space-4);
+}
+
+.prose a {
+  color: var(--color-preview-link);
+  text-decoration: none;
+}
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose strong {
+  font-weight: var(--weight-bold);
+}
+.prose em {
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-editor);
+  font-size: 0.875em;
+  background: var(--color-preview-code-bg);
+  padding: 2px 5px;
+  border-radius: var(--radius-code);
+}
+
+.prose pre {
+  background: var(--color-preview-code-bg);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875em;
+  border-radius: 0;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-preview-quote-border);
+  padding-left: var(--space-4);
+  color: var(--color-preview-quote-text);
+  font-style: italic;
+  margin: var(--space-4) 0;
+}
+
+.prose hr {
+  border: none;
+  height: 1px;
+  background: var(--color-preview-hr);
+  margin: var(--space-8) 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+.prose li {
+  margin-bottom: var(--space-1);
+}
+.prose ul {
+  list-style-type: disc;
+}
+.prose ol {
+  list-style-type: decimal;
+}
+
+/* Checkboxes */
+.prose ul.contains-task-list {
+  padding-left: var(--space-6);
+}
+.prose ul li.task-list-item {
+  list-style: none;
+  margin-left: calc(-1 * var(--space-6));
+  padding-left: var(--space-6);
+  position: relative;
+}
+.prose input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--color-checkbox-border);
+  border-radius: var(--radius-checkbox);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: var(--space-2);
+  margin-top: -2px;
+  flex-shrink: 0;
+  outline: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+}
+.prose input[type='checkbox']:focus,
+.prose input[type='checkbox']:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.prose input[type='checkbox']:checked {
+  background: var(--color-checkbox-checked);
+  border-color: var(--color-checkbox-checked);
+}
+.prose input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--color-checkbox-check);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.prose li:has(input[type='checkbox']:checked) > span,
+.prose li:has(input[type='checkbox']:checked) {
+  color: var(--color-checkbox-done-text);
+  text-decoration: line-through;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--color-preview-table-border);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+.prose th {
+  background: var(--color-preview-table-head);
+  font-weight: var(--weight-semibold);
+}
+.prose tr:nth-child(even) td {
+  background: var(--color-bg-sunken);
+}

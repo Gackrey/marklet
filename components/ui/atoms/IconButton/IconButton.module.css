@@ -1,0 +1,33 @@
+.btn {
+  border: none;
+  border-radius: var(--radius-button);
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color var(--duration-fast),
+    background var(--duration-fast);
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  background: var(--color-bg-sunken);
+}
+
+.md {
+  width: 32px;
+  height: 32px;
+}
+
+.sm {
+  width: 28px;
+  height: 28px;
+}
+
+.xs {
+  width: 24px;
+  height: 24px;
+}

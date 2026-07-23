@@ -1,0 +1,40 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.wrap::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%) translateY(4px);
+  background: var(--color-gray-900);
+  color: var(--color-gray-0);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+  z-index: var(--z-tooltip);
+}
+
+.wrap[data-side='top']::after {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.wrap:hover::after,
+.wrap:focus-within::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
