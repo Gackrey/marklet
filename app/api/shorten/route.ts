@@ -3,7 +3,6 @@ export async function POST(req: Request): Promise<Response> {
   try {
     ({ url } = (await req.json()) as { url: string });
     if (!url || typeof url !== 'string') throw new Error('missing url');
-    // Basic sanity — must be an absolute URL
     new URL(url);
   } catch {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
@@ -14,14 +13,26 @@ export async function POST(req: Request): Promise<Response> {
       `https://is.gd/create.php?format=json&url=${encodeURIComponent(url)}`,
       { headers: { 'User-Agent': 'marklet/1.0' } },
     );
-    if (!resp.ok) throw new Error(`is.gd ${resp.status}`);
 
-    const data = (await resp.json()) as
-      { shorturl: string } | { errorcode: number; errormessage: string };
+    const text = await resp.text();
 
-    if ('errorcode' in data) {
-      return Response.json({ error: data.errormessage }, { status: 422 });
+    if (!resp.ok) {
+      throw new Error(`is.gd ${resp.status}: ${text.slice(0, 120)}`);
     }
+
+    // is.gd occasionally returns a plain-text "Error, …" body with a 200 status
+    // even when format=json is requested, so we parse manually.
+    let data: { shorturl?: string; errorcode?: number; errormessage?: string };
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error(text.slice(0, 120));
+    }
+
+    if (data.errorcode !== undefined || !data.shorturl) {
+      throw new Error(data.errormessage ?? 'Shortening failed');
+    }
+
     return Response.json({ shortUrl: data.shorturl });
   } catch (err) {
     return Response.json(
