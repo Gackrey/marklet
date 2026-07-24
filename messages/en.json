@@ -71,9 +71,9 @@
     "downloadPng": "Download PNG"
   },
   "readView": {
-    "madeWith": "Made with",
+    "madeWith": "Made with ",
     "brand": "Marklet",
-    "copyLink": "Copy link"
+    "copyMarkdown": "Copy markdown"
   },
   "mcp": {
     "title": "Connect to Claude via MCP",

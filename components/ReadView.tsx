@@ -11,6 +11,7 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import { IconCopy, IconCheck, IconMarkletLogo } from '@/components/icons';
 import styles from './ReadView.module.css';
+import { IconButton, Tooltip } from './ui';
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -52,35 +53,29 @@ export default function ReadView({ markdown }: ReadViewProps) {
   }, [markdown]);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(window.location.href);
+    await navigator.clipboard.writeText(markdown);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className={styles.page}>
-      <div
-        className={`prose ${styles.content}`}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div className={`prose ${styles.content}`} dangerouslySetInnerHTML={{ __html: html }} />
 
       <div className={styles.sourcePill}>
         <IconMarkletLogo size={18} />
         <span className={styles.sourceText}>
-          {t('madeWith')}{' '}
+          {t('madeWith')}
           <a href="/" target="_blank" rel="noreferrer" className={styles.brandLink}>
             {t('brand')}
           </a>
         </span>
         <div className={styles.pillDivider} />
-        <button
-          className={styles.copyBtn}
-          onClick={handleCopy}
-          aria-label={t('copyLink')}
-          data-copied={String(copied)}
-        >
-          {copied ? <IconCheck size={13} /> : <IconCopy size={13} />}
-        </button>
+        <Tooltip content={t('copyMarkdown')}>
+          <IconButton size="sm" onClick={handleCopy} aria-label={t('copyMarkdown')}>
+            {copied ? <IconCheck size={13} /> : <IconCopy size={13} />}
+          </IconButton>
+        </Tooltip>
       </div>
     </div>
   );

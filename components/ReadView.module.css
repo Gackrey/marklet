@@ -45,7 +45,7 @@
   width: 1px;
   height: 16px;
   background: var(--color-border);
-  margin: 0 var(--space-2);
+  margin-left: var(--space-2);
   flex-shrink: 0;
 }
 
