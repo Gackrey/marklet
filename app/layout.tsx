@@ -9,6 +9,7 @@ const DESCRIPTION =
   'A zero-server markdown editor. Write in Markdown and share via a self-contained URL — no accounts, no database, no sync.';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://marklet.fyi'),
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
