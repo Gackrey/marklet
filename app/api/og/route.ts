@@ -75,7 +75,11 @@ export async function GET(req: Request): Promise<Response> {
   <meta property="og:url" content="${escapeHtml(targetUrl)}">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Marklet">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${escapeHtml(origin)}/opengraph-image">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${escapeHtml(origin)}/opengraph-image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta http-equiv="refresh" content="0; url=${escapeHtml(targetUrl)}">
