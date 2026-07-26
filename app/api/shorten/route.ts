@@ -1,11 +1,4 @@
-export const runtime = 'edge';
-
 import { Redis } from '@upstash/redis';
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
 
 function generateCode(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(5));
@@ -21,6 +14,11 @@ export async function POST(req: Request): Promise<Response> {
   } catch {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
+
+  const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL!,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  });
 
   try {
     const code = generateCode();
