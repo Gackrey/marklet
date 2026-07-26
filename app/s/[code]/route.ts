@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { Redis } from '@upstash/redis';
 
 const redis = new Redis({
