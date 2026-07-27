@@ -75,6 +75,20 @@
     "brand": "Marklet",
     "copyMarkdown": "Copy markdown"
   },
+  "seoFallback": {
+    "h1": "Marklet — Free Online Markdown Editor, Share via Link",
+    "description": "Marklet is a free online markdown editor with live preview. Write in Markdown and share your document as a self-contained URL — no sign-up, no account, no server required. Your content is encoded directly in the link.",
+    "featuresHeading": "Features",
+    "feature1": "Live markdown preview with split-pane editor",
+    "feature2": "Share markdown documents as a URL link — no uploads, no storage",
+    "feature3": "No sign-up or account needed — open the page and start writing",
+    "feature4": "Optional end-to-end encrypted sharing for private content",
+    "feature5": "Export markdown as PDF or HTML",
+    "feature6": "Works offline as a Progressive Web App (PWA)",
+    "feature7": "MCP server integration for AI-powered workflows",
+    "howHeading": "How it works",
+    "howDescription": "Type your markdown in the editor. Marklet compresses and encodes your content directly into the URL. Copy the link and share it — anyone with the link can read your document instantly, no account required."
+  },
   "mcp": {
     "title": "Connect to Claude via MCP",
     "subtitle": "Let Claude read, write, and update your Marklet documents by URL — no copy-paste needed.",

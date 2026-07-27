@@ -4,14 +4,28 @@ import './globals.css';
 import SwRegister from '@/components/SwRegister';
 import messages from '../messages/en.json';
 
-const TITLE = 'Marklet — write markdown, carry it in the link';
+const TITLE = 'Marklet — Free Online Markdown Editor, Share via Link';
 const DESCRIPTION =
-  'A zero-server markdown editor. Write in Markdown and share via a self-contained URL — no accounts, no database, no sync.';
+  'Marklet is a free online markdown editor with live preview. Write markdown and instantly share it as a link — no sign-up, no account, no server. Your content lives in the URL.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://marklet.fyi'),
   title: TITLE,
   description: DESCRIPTION,
+  keywords: [
+    'markdown editor',
+    'online markdown editor',
+    'free markdown editor',
+    'markdown to link',
+    'share markdown online',
+    'markdown live preview',
+    'no signup markdown editor',
+    'serverless markdown',
+    'markdown URL share',
+    'markdown notepad online',
+    'markdown editor no account',
+    'shareable markdown link',
+  ],
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -27,6 +41,29 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Marklet',
+  url: 'https://marklet.fyi',
+  description: DESCRIPTION,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  featureList: [
+    'Live markdown preview',
+    'Share markdown as a URL',
+    'No sign-up required',
+    'No server or database',
+    'Encrypted sharing',
+    'Export as PDF or HTML',
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -34,6 +71,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#4f46e5" />
         <link rel="apple-touch-icon" href="/icon-192.svg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
         <NextIntlClientProvider locale="en" messages={messages}>
